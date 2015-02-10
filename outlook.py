@@ -3,7 +3,7 @@ import os, time, sys
 import re
 import subprocess
 
-Manager = 'Domain name of you Manager'
+Manager = 'Your Managers Domain Name'
 
 
 
@@ -30,9 +30,13 @@ while (1):
         matchObj = re.match( r'.*/cn=(.*)', sender, re.M|re.I)
         try:
             From = matchObj.group(1)
+            ##print From ## uncomment this to get the address 
+					   ## header you might have to change 
+					   ##the regex to get this working
         except:
             From = 'unknown'
-        ## print From -- uncomment this to get the address header you might have to change the regex to get this working
+			
+			
             
         if (From == Manager):
             ##print 'pattern:emergency'
