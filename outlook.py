@@ -9,10 +9,12 @@ Manager = 'Domain name of you Manager'
 
 def set_color(color):
     colorCmd = '--rgb='+str(color[0])+','+str(color[1])+','+str(color[2])
-    cmd =['blink1-tool', colorCmd]
+    cmd =['blink1-tool','-q',colorCmd]
     pr=subprocess.Popen(cmd)
     pr.wait()
 
+
+print 'I will keep an eye out for your emails :) take a walk..'
 session = win32com.client.gencache.EnsureDispatch ("MAPI.Session")
 
 session.Logon ("Outlook")
@@ -55,4 +57,4 @@ while (1):
         set_color([0,130,0])
         #print 'you have no new email'
         ##message = messages.GetNext ()
-    time.sleep ()
+    time.sleep (60)
